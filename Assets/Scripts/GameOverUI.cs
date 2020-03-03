@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
+
+    [SerializeField] int soundNum = 6;
+
     Game game;
     // Start is called before the first frame update
-    Image blackBar;
-    Text gameOverText;
+    private Image blackBar;
+    private Text gameOverText;
+    private bool playedGameOverSound = false;
 
-    void Start()
+    private void Start()
     {
         game = FindObjectOfType<Game>();
         blackBar = GameObject.Find("BlackBar").GetComponent<Image>();
@@ -20,7 +24,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (game.global.lives <= 0 && game.normalLevel)
         {
@@ -31,6 +35,12 @@ public class GameOverUI : MonoBehaviour
             {
                 game.ResetGame();
             }
+
+            if (!playedGameOverSound)
+            {
+                game.playSound(soundNum);
+            }
+            playedGameOverSound = true;
         }
     }
 }

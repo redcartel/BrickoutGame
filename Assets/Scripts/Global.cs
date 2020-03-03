@@ -30,4 +30,5 @@ public class Global : MonoBehaviour
     [SerializeField] public int lives = 99; // for debug
     [SerializeField] public int level = 99;
     [SerializeField] public int startingLives = 3;
+    [SerializeField] public float targetHeightPx = 1024f;
 }

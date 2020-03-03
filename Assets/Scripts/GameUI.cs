@@ -10,22 +10,19 @@ public class GameUI : MonoBehaviour
     Text scoreOutput;
     Text livesOutput;
     Text levelOutput;
-    Global global;
     Game game;
     
-    void Start()
+    private void Start()
     {
         scoreOutput = GameObject.Find("ScoreOutput").GetComponent<Text>();
         livesOutput = GameObject.Find("LivesOutput").GetComponent<Text>();
         levelOutput = GameObject.Find("LevelOutput").GetComponent<Text>();
-        global = FindObjectOfType<Global>();
         game = FindObjectOfType<Game>();
     }
 
-    void Update()
+
+    private void Update()
     {
-        scoreOutput.text = global.score.ToString();
-        livesOutput.text = global.lives.ToString();
         if (!game.normalLevel)
         {
             scoreOutput.text = "------";
@@ -34,11 +31,10 @@ public class GameUI : MonoBehaviour
         }
         else
         {
-            scoreOutput.text = global.score.ToString();
-            livesOutput.text = global.lives.ToString();
-
+            scoreOutput.text = game.global.score.ToString("D6");
+            livesOutput.text = game.global.lives.ToString("D2");
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            levelOutput.text = currentSceneIndex.ToString();
+            levelOutput.text = currentSceneIndex.ToString("D2");
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BottomBoundary : MonoBehaviour
 {
     Game game;
+    [SerializeField] public int soundNum = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class BottomBoundary : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
+        game.playSound(soundNum);
         game.LoseLife();
     }
 

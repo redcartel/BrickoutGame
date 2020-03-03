@@ -9,6 +9,8 @@ public class Paddle : MonoBehaviour
     [SerializeField] float halfPaddleWidth = .75f / 2;
     [SerializeField] float stageWidth = 4f;
     [SerializeField] float borderWidth = .25f;
+    [SerializeField] AudioSource collisionSound;
+    [SerializeField] public int soundNum = 4;
 
     Game game;
 
@@ -38,6 +40,15 @@ public class Paddle : MonoBehaviour
         else
         {
             return game.ball.transform.position.x;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ball")
+        {
+            game.waitToChangeBallVelocity = true;
+            game.playSound(soundNum);
         }
     }
 }

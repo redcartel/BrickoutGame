@@ -32,10 +32,10 @@ RectTransform:
   m_Father: {fileID: 7731074000515656719}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.52000004}
-  m_AnchorMax: {x: 1, y: 0.52000004}
-  m_AnchoredPosition: {x: 57.5, y: -19}
-  m_SizeDelta: {x: -115, y: 30}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -96}
+  m_SizeDelta: {x: 608, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7731074000254815450
 CanvasRenderer:
@@ -65,18 +65,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b5747c6d038e9dee69b26bef6e5eca67, type: 3}
-    m_FontSize: 24
+    m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
+    m_Alignment: 1
+    m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Click TO START GAME
+  m_Text: "BRICK ALLEY\n\n\xA9 CARTER ADAMS \n2020\n\nCLICK TO START"
 --- !u!1 &7731074000515656718
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 32
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
