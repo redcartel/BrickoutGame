@@ -49,18 +49,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageWidth: 144
+  expectedHeight: 256
+  expectedWidth: 144
   borderWidth: 8
   levelOneSceneNo: 1
   gameOverSceneNo: 0
   maxScore: 1000000
   blockCount: 0
   gamePlaying: 0
+  autoPlay: 0
   waitToChangeBallVelocity: 0
   levelData: {fileID: 0}
   hudController: {fileID: 0}
   levelController: {fileID: 0}
   soundController: {fileID: 0}
   foregroundController: {fileID: 0}
+  inputController: {fileID: 0}
 --- !u!1001 &1675690552238661834
 PrefabInstance:
   m_ObjectHideFlags: 0

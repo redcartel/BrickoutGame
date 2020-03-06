@@ -6,29 +6,33 @@ public class Block : MonoBehaviour
 {
     [SerializeField] int points = 10;
     [SerializeField] int speedClass = 0;
-    [SerializeField] bool breakable = true;
-    [SerializeField] public int soundNum = 0;
+    [SerializeField] bool breakable = false;
+    [SerializeField] public string soundTag = "HARDBOUNCE";
+    [SerializeField] public float width;
+    [SerializeField] public float height;
 
-    GameController game;
+    [SerializeField] public LevelController level;
 
     void Start()
     {
-        game = FindObjectOfType<GameController>();
-        if (breakable)
-        {
-            game.AddBlock();
-        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (breakable)
-        {
-            game.IncreaseScore(points);
-            game.RemoveBlock();
-            Destroy(gameObject);
-            game.SetSpeedClass(speedClass);
-        }
-        game.playSound(soundNum);
+        if (collision.gameObject.tag == "ball")
+            if (breakable)
+            {
+                Debug.Log(level);
+                Debug.Log(level.game);
+                level.game.IncreaseScore(points);
+                level.game.RemoveBlock();
+                Destroy(gameObject);
+                level.game.SetBallSpeedClass(speedClass);
+            }
+
+            if (!(soundTag is null) && soundTag.Length > 0)
+            {
+                level.game.PlaySound(soundTag);
+            }
     }
 }

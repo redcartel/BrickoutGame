@@ -11,14 +11,16 @@ public class LevelController : MonoBehaviour
     [SerializeField] public int elementWidth = 16;
     [SerializeField] public int elementHeight = 8;
 
-    GameController game;
+    public GameController game;
+    public int blockCount = 0;
+    public bool levelInitialized = false;
 
     void Start()
     {
-        game = FindObjectOfType<GameController>();
+        Debug.Log("LevelController Start");
         for (int i = 0; i < elementSources.Length; i++)
         {
-            elementSources[i].transform.position = new Vector3(0, 0, 1000000);
+            elementSources[i].transform.position = new Vector3(1000000, 1000000, 1000000);
         }
     }
 
@@ -33,20 +35,26 @@ public class LevelController : MonoBehaviour
                 PlaceElement(columnCodes[colIndex], colIndex, rowIndex, levelData.mapData.Length);
             }
         }
+        levelInitialized = true;
     }
 
     public void PlaceElement(int code, int colIndex, int rowIndex, int numRows=16)
     {
         if (code < 0) return;
+        if (code > elementSources.Length) return;
 
         int x = offsetX + elementWidth * colIndex;
         int rowFromBottom = numRows - rowIndex - 1;
         int y = bottomRowY + rowFromBottom * elementHeight;
         GameObject newElement = Instantiate(elementSources[code]);
+        if (newElement.tag == "mustDestroy") {
+            game.AddBlock();
+        }
         newElement.transform.position = new Vector3(x, y, 0);
-        Debug.Log(string.Format("{0},{1} code {2}", x, y, code));
     }
 
+    // Turn a string of comma separated integers into an array of ints.
+    // non-integer values returned as -1 (blank)
     private int[] ColumnCodes(string mapRow)
     {
         string[] columnStrings = mapRow.Split(',');
@@ -65,11 +73,5 @@ public class LevelController : MonoBehaviour
             }
         }
         return columnCodes;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

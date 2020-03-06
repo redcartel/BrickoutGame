@@ -1,46 +1,87 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class HUDController : MonoBehaviour
 {
-    public GameController game;
-    public Dictionary<string, Canvas> canvases = new Dictionary<string, Canvas>();
-    private const string containerTag = "canvasContainer";
-    private const string disabledTag = "defaultDisabled";
+    [SerializeField] private GameController game;
 
-    // Start is called before the first frame update
+    [SerializeField] private string disabledTag = "defaultDisabled";
+    [SerializeField] private GameUI gameUI;
+    [SerializeField] private StartUI startUI;
+    [SerializeField] private WinUI winUI;
+    [SerializeField] private GameOverUI gameOverUI;
+
+    public bool startShown = false;
+    public bool gameOverShown = false;
+    public bool winShown = false;
+
     void Start()
     {
-        Debug.Log("HUDController Start");
-        game = FindObjectOfType<GameController>();
-        canvases = loadDirectory();
-        disableDefaults();
+        SetAlpha(gameUI.GetComponent<CanvasGroup>(), 0.0f);
+        SetAlpha(startUI.GetComponent<CanvasGroup>(), 0.0f);
+        SetAlpha(winUI.GetComponent<CanvasGroup>(), 0.0f);
+        SetAlpha(gameUI.GetComponent<CanvasGroup>(), 1.0f);
+
     }
 
-    // populate a dictionary of name : GameObject pairs of Canvas elements without the canvasContainer
-    public Dictionary<string, Canvas> loadDirectory(bool disableStartDisabled = true)
+
+    public void SetAlpha(CanvasGroup cg, float alpha)
     {
-        Dictionary<string, Canvas> newDict = new Dictionary<string, Canvas>();
-        foreach (Canvas cnvs in FindObjectsOfType<Canvas>())
-        {
-            if (cnvs.tag != containerTag)
-            {
-                newDict.Add(cnvs.name, cnvs);
+        if (!(cg is null)) {
+            cg.alpha = alpha;
+            if (alpha < 0.00001f) {
+                cg.blocksRaycasts = false;
+            }
+            else if (alpha > 0.99999) {
+                cg.blocksRaycasts = true;
             }
         }
-        return newDict;
+        else {
+            Debug.LogWarning(string.Format("Null CanvasGroup for Canvas"));
+        }
     }
 
-     public void disableDefaults()
+    public void RefreshGameUI()
     {
-        foreach (string key in canvases.Keys)
+        gameUI.SetScore(game.score);
+        gameUI.SetLives(game.lives);
+        gameUI.SetLevel(game.level);
+    }
+
+    public void HandleClick(float eX, float eY)
+    {
+        if (startShown)
         {
-            Debug.Log("disableDefaults " + key);
-            if (canvases[key].tag == disabledTag)
-            {
-                canvases[key].enabled = false;
-            }
+            game.StartGame();
         }
+        else if (gameOverShown)
+        {
+            game.ResetGame();
+        }
+        else if (winShown)
+        {
+            game.ResetGame();
+        }
+    }
+
+    public void ShowGameOver()
+    {
+        SetAlpha(gameOverUI.GetComponent<CanvasGroup>(), 1.0f);
+        gameOverShown = true;
+    }
+
+    public void ShowStartMesage()
+    {
+        SetAlpha(startUI.GetComponent<CanvasGroup>(), 1.0f);
+        startShown = true;
+    }
+
+    public void ShowWinMessage()
+    {
+        SetAlpha(winUI.GetComponent<CanvasGroup>(), 1.0f);
+        winShown = true;
     }
 }

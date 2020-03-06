@@ -7,7 +7,6 @@ public class BottomBoundary : MonoBehaviour
     GameController game;
     [SerializeField] public int soundNum = 5;
 
-    // Start is called before the first frame update
     void Start()
     {
         game = FindObjectOfType<GameController>();
@@ -15,12 +14,11 @@ public class BottomBoundary : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        game.playSound(soundNum);
-        Debug.Log("Life lost");
         game.LoseLife();
+
+        Debug.Log("Life lost");
     }
 
-    // Update is called once per frame
     void Update()
     {
         

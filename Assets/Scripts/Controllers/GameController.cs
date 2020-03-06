@@ -7,14 +7,18 @@ public class GameController : MonoBehaviour
 {
     private Global global;
 
-    [SerializeField] public float stageWidth = 144f;
     [SerializeField] public float expectedHeight = 256f;
     [SerializeField] public float expectedWidth = 144f;
     [SerializeField] public float borderWidth = 0f;
 
     [SerializeField] public int levelOneSceneNo = 1;
-    [SerializeField] public int gameOverSceneNo = 0;
     [SerializeField] public int maxScore = 1000000;
+    [SerializeField] public int startingLives = 3;
+
+    [SerializeField] public string loseLifeSoundTag = "DIE";
+    [SerializeField] public string gameOverSoundTag = "GAMEOVER";
+    [SerializeField] public string gameStartSoundTag = "START";
+    [SerializeField] public string gameWonSoundTag = "";
 
     [SerializeField] public int blockCount = 0; // serialized for debugging, don't change
 
@@ -24,6 +28,10 @@ public class GameController : MonoBehaviour
 
     public int score { get { return global.score; } private set { global.score = value; } }
     public int lives { get { return global.lives; } private set { global.lives = value; } }
+    public int level 
+    { 
+        get { return SceneManager.GetActiveScene().buildIndex - levelOneSceneNo + 1;} 
+    }
 
     [SerializeField] public LevelData levelData;
     [SerializeField] public HUDController hudController;
@@ -36,50 +44,66 @@ public class GameController : MonoBehaviour
     public float mouseY { get { return inputController.effectiveMouseY; } }
 
     // Attempt to find controllers that have not been specified.
-    private void LoadControllers()
-    {
-        global = FindObjectOfType<Global>();
-        levelData = (levelData is null) ? FindObjectOfType<LevelData>() : levelData;
-        hudController = (hudController is null) ? FindObjectOfType<HUDController>() : hudController;
-        levelController = (levelController is null) ? FindObjectOfType<LevelController>() : levelController;
-        soundController = (soundController is null) ? FindObjectOfType<SoundController>() : soundController;
-        foregroundController = (foregroundController is null) ? FindObjectOfType<ForegroundController>() : foregroundController;
-        inputController = (inputController is null) ? FindObjectOfType<InputController>() : inputController;
-    }
 
     private void Start()
     {
-        Debug.Log("GameController start");
-        LoadControllers();
+        global = FindObjectOfType<Global>();
+        // hudController.DisableDefaults();
+        levelController.PopulateLevel(levelData);
         if (levelData.firstLevel)
         {
             ResetPlayerData();
         }
-        levelController.PopulateLevel(levelData);
+        hudController.RefreshGameUI();
     }
 
     private void Update()
     {
-        // UpdateScaleFactor();
+        if (!(inputController is null))
+        {
+            inputController.UpdateCheckInput();
+        }
+    }
+
+    public void HandleMouseMove(float eX, float eY)
+    {
+        foregroundController.HandleMouseMove(eX, eY);
+    }
+
+    public void HandleClick(float eX, float eY)
+    {
+        foregroundController.HandleClick(eX, eY, levelData.launchVector, levelData.launchSpeed);
+        hudController.HandleClick(eX, eY);
     }
 
     public void ResetPlayerData()
     {
         score = 0;
-        lives = global.startingLives;
+        lives = startingLives;
     }
 
-    public void ResetGame(int buildIndex=0)
+    public void ResetGame(int sceneNo=0)
     {
-        global.score = 0;
-        global.lives = global.startingLives;
-        SceneManager.LoadScene(buildIndex);
+        ResetPlayerData();
+        SceneManager.LoadScene(sceneNo);
+    }
+
+    public void StartGame()
+    {
+        ResetPlayerData();
+
+        SceneManager.LoadScene(levelOneSceneNo);
     }
 
     public void WinLevel()
     {
         // In a normal level, advance to the next stage, otherwise reload this stage
-        if (levelData.goToNextStage)
+        if (levelData.lastLevel)
+        {
+            foregroundController.Freeze();
+            hudController.ShowWinMessage();
+        }
+        else if (!levelData.doNotAdvance)
         {
             int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
             SceneManager.LoadScene(nextSceneIndex);
@@ -94,7 +118,7 @@ public class GameController : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
-        // hudControl.Refresh();
+        hudController.RefreshGameUI();
     }
 
     public void AddBlock()
@@ -111,41 +135,35 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void LoseLife()
+    public void LoseLife(string soundTag="")
     {
         lives--;
+        hudController.RefreshGameUI();
         if (lives <= 0)
         {
-            LoseGame();
+            GameOver();
         }
         else
         {
             foregroundController.ResetBall();
+            PlaySound(loseLifeSoundTag);
         }
     }
 
-    public void LoseGame()
+    public void GameOver()
     {
+        Debug.Log("Game Over");
+        PlaySound(gameOverSoundTag);
+        foregroundController.Freeze();
+        hudController.ShowGameOver();
     }
 
-    public void playSound(int soundNumber)
+    public void PlaySound(string soundTag)
     {
+        soundController.PlaySound(soundTag);
     }
 
-    public void HandleMouseMove(float eX, float eY)
-    {
-        foregroundController.HandleMouseMove(eX, eY);
-    }
-
-    public void HandleClick(float eX, float eY)
-    {
-        if (foregroundController.stuckToPaddle)
-        {
-            foregroundController.LaunchBall(levelData.launchVector, levelData.launchSpeed);
-        }
-    }
-
-    public void SetSpeedClass(int speedClass)
+    public void SetBallSpeedClass(int speedClass)
     {
         float newMinBallSpeed = levelData.speeds[speedClass];
         foregroundController.MinBallSpeed(newMinBallSpeed);

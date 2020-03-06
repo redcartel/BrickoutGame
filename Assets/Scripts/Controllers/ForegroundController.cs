@@ -8,40 +8,56 @@ public class ForegroundController : MonoBehaviour
     [SerializeField] public Ball ball;
     [SerializeField] public Paddle paddle;
 
-    GameController game;
+    public GameController game;
 
+    public bool frozen = false;
+    public Vector3 savedBallVelocity = new Vector3(0f,0f,0f);
     public bool stuckToPaddle = true;
     private Vector3 ballPaddleDelta;
-
     private Block[] blocks;
-    private float leftBound;
-    private float rightBound;
 
     void Start()
     {
-        game = (game is null) ? FindObjectOfType<GameController>() : game;
-        ball = (ball is null) ? FindObjectOfType<Ball>() : ball;
-        paddle = (paddle is null) ? FindObjectOfType<Paddle>() : paddle;
+        ball = (ball is null) ? GetComponentInChildren<Ball>() : ball;
+        paddle = (paddle is null) ? GetComponentInChildren<Paddle>() : paddle;
         ballPaddleDelta = ball.transform.position - paddle.transform.position;
-        leftBound = game.borderWidth + paddle.width / 2;
-        rightBound = game.expectedWidth - game.borderWidth - paddle.width / 2;
+    }
+
+    private float leftPaddleBound { get { return game.borderWidth + paddle.width * .5f; } }
+    private float rightPaddleBound { get { return game.expectedWidth - game.borderWidth - paddle.width * .5f; } }
+
+    public void Freeze() {
+        frozen = true;
+        savedBallVelocity = ball.rigidBody2D.velocity;
+        ball.rigidBody2D.velocity = new Vector3(0f,0f,0f);
+    }
+    
+    public void Unfreeze() {
+        frozen = false;
+        ball.rigidBody2D.velocity = savedBallVelocity;
     }
 
     public void HandleMouseMove(float mouseX, float mouseY)
     {
-        Vector3 position = paddle.transform.position;
-        float newX = Mathf.Clamp(mouseX, leftBound, rightBound);
-        paddle.transform.position = new Vector3(newX, position.y, position.z);
+        if (!frozen) {
+            Vector3 position = paddle.transform.position;
+            float newX = Mathf.Clamp(mouseX, leftPaddleBound, rightPaddleBound);
+            paddle.transform.position = new Vector3(newX, position.y, position.z);
 
-        if (stuckToPaddle)
-        {
-            Vector3 ballPosition = paddle.transform.position + ballPaddleDelta;
-            ball.transform.position = ballPosition;
+            if (stuckToPaddle)
+            {
+                Vector3 ballPosition = paddle.transform.position + ballPaddleDelta;
+                ball.transform.position = ballPosition;
+            }
         }
     }
 
-    public void HandleClick(float mouseX, float mouseY)
+    public void HandleClick(float mouseX, float mouseY, Vector2 launchVector, float launchSpeed)
     {
+        if (stuckToPaddle)
+        {
+            LaunchBall(launchVector, launchSpeed);
+        }
     }
 
     public void LaunchBall(Vector2 launchVector, float launchSpeed)

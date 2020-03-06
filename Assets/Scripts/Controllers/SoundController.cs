@@ -5,25 +5,31 @@ using UnityEngine;
 public class SoundController : MonoBehaviour
 {
     public GameController game;
-    public Dictionary<string, AudioSource> canvases = new Dictionary<string, AudioSource>();
+    public Dictionary<string, AudioSource> directory = new Dictionary<string, AudioSource>();
+
+    [SerializeField] public string[] soundTags;
+    [SerializeField] public AudioSource[] sounds;
 
     // Start is called before the first frame update
     void Start()
     {
-        game = FindObjectOfType<GameController>();
-        canvases = loadDirectory();
+        Debug.Log("SoundController Start");
+        int stop = sounds.Length > soundTags.Length ? sounds.Length : soundTags.Length;
+        for (int i = 0; i < stop; i++)
+        {
+            directory.Add(soundTags[i], sounds[i]);
+        }
     }
 
-    public Dictionary<string, AudioSource> loadDirectory(bool disableStartDisabled = true)
+    public void PlaySound(string soundTag)
     {
-        Dictionary<string, AudioSource> newDict = new Dictionary<string, AudioSource>();
-        foreach (AudioSource cnvs in FindObjectsOfType<AudioSource>())
+        if (directory.ContainsKey(soundTag))
         {
-            if (cnvs.tag != "canvasContainer")
-            {
-                newDict.Add(cnvs.name, cnvs);
-            }
+            directory[soundTag].Play();
         }
-        return newDict;
+        else
+        {
+            Debug.LogWarning(string.Format("soundTag {0} not found. (SoundController)", soundTag));
+        }
     }
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     // Start is called before the first frame update
-    GameController game;
+    [SerializeField] LevelController level;
     [SerializeField] public int soundNum = 3;
+    [SerializeField] string soundTag = "HARDBOUNCE";
 
     void Start()
     {
-        game = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -21,10 +21,10 @@ public class Wall : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        // Debug.Log(string.Format("Wall Bounce with gameObject {0}", collision.gameObject.name));
         if (collision.gameObject.tag == "ball")
         {
-            game.waitToChangeBallVelocity = true;
-            game.playSound(soundNum);
+            level.game.PlaySound(soundTag);
         }
     }
 }
