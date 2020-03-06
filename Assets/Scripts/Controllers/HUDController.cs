@@ -20,11 +20,6 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
-        SetAlpha(gameUI.GetComponent<CanvasGroup>(), 0.0f);
-        SetAlpha(startUI.GetComponent<CanvasGroup>(), 0.0f);
-        SetAlpha(winUI.GetComponent<CanvasGroup>(), 0.0f);
-        SetAlpha(gameUI.GetComponent<CanvasGroup>(), 1.0f);
-
     }
 
 

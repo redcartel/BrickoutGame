@@ -23,6 +23,12 @@ public class ForegroundController : MonoBehaviour
         ballPaddleDelta = ball.transform.position - paddle.transform.position;
     }
 
+    void FixedUpdate() {
+        if (stuckToPaddle && game.demoMode) {
+            LaunchBall();
+        }
+    }
+
     private float leftPaddleBound { get { return game.borderWidth + paddle.width * .5f; } }
     private float rightPaddleBound { get { return game.expectedWidth - game.borderWidth - paddle.width * .5f; } }
 
@@ -31,7 +37,7 @@ public class ForegroundController : MonoBehaviour
         savedBallVelocity = ball.rigidBody2D.velocity;
         ball.rigidBody2D.velocity = new Vector3(0f,0f,0f);
     }
-    
+
     public void Unfreeze() {
         frozen = false;
         ball.rigidBody2D.velocity = savedBallVelocity;
@@ -56,12 +62,14 @@ public class ForegroundController : MonoBehaviour
     {
         if (stuckToPaddle)
         {
-            LaunchBall(launchVector, launchSpeed);
+            LaunchBall();
         }
     }
 
-    public void LaunchBall(Vector2 launchVector, float launchSpeed)
+    public void LaunchBall()
     {
+        Vector3 launchVector = game.levelData.launchVector;
+        float launchSpeed = game.levelData.launchSpeed;
         ball.transform.position = paddle.transform.position + ballPaddleDelta;
         stuckToPaddle = false;
         ball.GetComponentInChildren<Rigidbody2D>().velocity = launchVector * launchSpeed;

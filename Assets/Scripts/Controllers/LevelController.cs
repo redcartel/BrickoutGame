@@ -6,7 +6,7 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] public GameObject[] elementSources;
     [SerializeField] public int expectedRows = 16;
-    [SerializeField] public int bottomRowY = 232 - 16 * 8;
+    [SerializeField] public int bottomRowY = 216 - 16 * 8;
     [SerializeField] public int offsetX = 8;
     [SerializeField] public int elementWidth = 16;
     [SerializeField] public int elementHeight = 8;

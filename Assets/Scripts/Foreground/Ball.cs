@@ -28,15 +28,7 @@ public class Ball : MonoBehaviour
     // FixedUpdate called once per physics frame;
     void FixedUpdate()
     {
-        // the turn after waitToChangeBallVelocity, we check no matter what
-        /*if (changeBallVelocityNextCycle)
-        {
-            changeBallVelocityNextCycle = false;
-            FixBallVelocity();
-        }
-        // if it's the waitToChangeBallVelocity update step, set 
-        // changeBallVelocityNextCycle to true
-        else*/ if (waitToChangeBallVelocity)
+    if (waitToChangeBallVelocity)
         {
             waitToChangeBallVelocity = false;
             /*changeBallVelocityNextCycle = true;*/

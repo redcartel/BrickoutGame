@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
         get { return SceneManager.GetActiveScene().buildIndex - levelOneSceneNo + 1;} 
     }
 
+    [SerializeField] public bool demoMode = false;
+
     [SerializeField] public LevelData levelData;
     [SerializeField] public HUDController hudController;
     [SerializeField] public LevelController levelController;
@@ -40,8 +42,17 @@ public class GameController : MonoBehaviour
     [SerializeField] public ForegroundController foregroundController;
     [SerializeField] public InputController inputController;
 
-    public float mouseX { get { return inputController.effectiveMouseX; } }
+    public float mouseX { get { 
+        if (!demoMode) {
+            return inputController.effectiveMouseX;
+        } else {
+            return foregroundController.ball.transform.position.x;
+        }
+    } }
     public float mouseY { get { return inputController.effectiveMouseY; } }
+
+    private float rememberedMouseX = 0.0f;
+    private float rememberedMouseY = 0.0f;
 
     // Attempt to find controllers that have not been specified.
 
@@ -50,11 +61,20 @@ public class GameController : MonoBehaviour
         global = FindObjectOfType<Global>();
         // hudController.DisableDefaults();
         levelController.PopulateLevel(levelData);
+        hudController.RefreshGameUI();
+
         if (levelData.firstLevel)
         {
             ResetPlayerData();
         }
-        hudController.RefreshGameUI();
+        if (levelData.demo)
+        {
+            demoMode = true;
+        }
+        if (levelData.showStartUI)
+        {
+            hudController.ShowStartMesage();
+        }
     }
 
     private void Update()
@@ -62,6 +82,9 @@ public class GameController : MonoBehaviour
         if (!(inputController is null))
         {
             inputController.UpdateCheckInput();
+        }
+        if ((new Vector2(mouseX, mouseY) - new Vector2(rememberedMouseX, rememberedMouseY)).magnitude > 1) {
+            HandleMouseMove(mouseX, mouseY);
         }
     }
 
@@ -91,7 +114,6 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         ResetPlayerData();
-
         SceneManager.LoadScene(levelOneSceneNo);
     }
 

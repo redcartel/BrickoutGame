@@ -6,6 +6,7 @@ public class LevelData : MonoBehaviour
 {
     [SerializeField] public bool demo = false;
     [SerializeField] public bool doNotAdvance = false;
+    [SerializeField] public bool showStartUI = false;
     [SerializeField] public bool firstLevel = true;
     [SerializeField] public bool lastLevel = false;
     [SerializeField] public Vector2 launchVector = new Vector2(1f, 1f);
