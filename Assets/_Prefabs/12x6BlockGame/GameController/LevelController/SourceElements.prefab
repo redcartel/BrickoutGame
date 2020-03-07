@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1621018865773192397}
-  - component: {fileID: 3123262341318686386}
   - component: {fileID: 7699775083035758362}
+  - component: {fileID: 3123262341318686386}
   - component: {fileID: 5136968312716656495}
   m_Layer: 0
   m_Name: Block3
@@ -33,6 +33,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7699775083035758362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778954210783217222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 25
+  speedClass: 2
+  breakable: 1
+  soundTag: BRICKBREAK3
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &3123262341318686386
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12f5cee14bda2292b809d94bd3b4fdde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c2ba2235e9736e6c93b8c893b1978e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,25 +102,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7699775083035758362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 778954210783217222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 25
-  speedClass: 1
-  breakable: 1
-  soundTag: BRICKBREAK2
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &5136968312716656495
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,8 +137,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6469870125691311280}
-  - component: {fileID: 1919076324939667221}
   - component: {fileID: 5922667072351217059}
+  - component: {fileID: 1919076324939667221}
   - component: {fileID: 4355457303625793504}
   m_Layer: 0
   m_Name: Block6
@@ -161,6 +161,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5922667072351217059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6095828225778319234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 200
+  speedClass: 3
+  breakable: 0
+  soundTag: BRICKBREAK5
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &1919076324939667221
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -211,25 +230,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5922667072351217059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6095828225778319234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 200
-  speedClass: 2
-  breakable: 1
-  soundTag: BRICKBREAK6
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &4355457303625793504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3808638909381619940}
-  - component: {fileID: 3220394867320976904}
   - component: {fileID: 1753356383420382778}
+  - component: {fileID: 3220394867320976904}
   - component: {fileID: 6347423834195201015}
   m_Layer: 0
   m_Name: Block1
@@ -289,6 +289,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753356383420382778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6097756173739862036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 10
+  speedClass: 0
+  breakable: 1
+  soundTag: BRICKBREAK0
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &3220394867320976904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -339,25 +358,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1753356383420382778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6097756173739862036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 10
-  speedClass: 0
-  breakable: 1
-  soundTag: BRICKBREAK0
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &6347423834195201015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -589,8 +589,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8585694466115397776}
-  - component: {fileID: 8585694466115397779}
   - component: {fileID: 8585694466115397778}
+  - component: {fileID: 8585694466115397779}
   - component: {fileID: 8585694466115397777}
   m_Layer: 0
   m_Name: Block2
@@ -613,6 +613,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8585694466115397778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585694466115397783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 15
+  speedClass: 1
+  breakable: 1
+  soundTag: BRICKBREAK1
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &8585694466115397779
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -652,7 +671,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c03dd3bc0480bbfe18212bd03fe4c6b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 712ed7738b810dcdfa2e841bed89f9ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -663,25 +682,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8585694466115397778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8585694466115397783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 15
-  speedClass: 1
-  breakable: 1
-  soundTag: BRICKBREAK1
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &8585694466115397777
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -717,8 +717,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8585694467135132404}
-  - component: {fileID: 8585694467135132407}
   - component: {fileID: 8585694467135132406}
+  - component: {fileID: 8585694467135132407}
   - component: {fileID: 8585694467135132405}
   m_Layer: 0
   m_Name: Block4
@@ -741,6 +741,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8585694467135132406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8585694467135132395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 50
+  speedClass: 3
+  breakable: 1
+  soundTag: BRICKBREAK4
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &8585694467135132407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -791,25 +810,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8585694467135132406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8585694467135132395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 50
-  speedClass: 2
-  breakable: 1
-  soundTag: BRICKBREAK4
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &8585694467135132405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -845,8 +845,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6093208724313129098}
-  - component: {fileID: 702085335737630621}
   - component: {fileID: 190224665365057678}
+  - component: {fileID: 702085335737630621}
   - component: {fileID: 1073371587737130752}
   m_Layer: 0
   m_Name: Block5
@@ -869,6 +869,25 @@ Transform:
   m_Father: {fileID: 3536907615634164981}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &190224665365057678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123962376920394447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 75
+  speedClass: 4
+  breakable: 1
+  soundTag: BRICKBREAK5
+  width: 0
+  height: 0
+  level: {fileID: 0}
 --- !u!212 &702085335737630621
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -919,25 +938,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &190224665365057678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9123962376920394447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points: 75
-  speedClass: 2
-  breakable: 1
-  soundTag: BRICKBREAK5
-  width: 0
-  height: 0
-  level: {fileID: 0}
 --- !u!61 &1073371587737130752
 BoxCollider2D:
   m_ObjectHideFlags: 0

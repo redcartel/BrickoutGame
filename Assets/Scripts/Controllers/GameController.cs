@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public string gameStartSoundTag = "START";
     [SerializeField] public string gameWonSoundTag = "";
 
+
     [SerializeField] public int blockCount = 0; // serialized for debugging, don't change
 
     public bool gamePlaying = false;
@@ -40,6 +41,9 @@ public class GameController : MonoBehaviour
     [SerializeField] public SoundController soundController;
     [SerializeField] public ForegroundController foregroundController;
     [SerializeField] public InputController inputController;
+    [SerializeField] public DebugKeys debugKeys;
+
+    private bool gameWon = false;
 
     public float mouseX { get { 
         if (!demoMode) {
@@ -55,6 +59,11 @@ public class GameController : MonoBehaviour
 
     // Attempt to find controllers that have not been specified.
 
+    private void Awake() {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 50;
+    }
+
     private void Start()
     {
         global = FindObjectOfType<Global>();
@@ -64,6 +73,7 @@ public class GameController : MonoBehaviour
 
         if (levelData.firstLevel)
         {
+            PlaySound("START");
             ResetPlayerData();
         }
         if (levelData.demo)
@@ -95,6 +105,9 @@ public class GameController : MonoBehaviour
     {
         foregroundController.HandleClick(eX, eY, levelData.launchVector, levelData.launchSpeed);
         hudController.HandleClick(eX, eY);
+        if (!(debugKeys is null)) {
+            debugKeys.HandleClick(eX, eY);
+        }
     }
 
     public void ResetPlayerData()
@@ -121,8 +134,9 @@ public class GameController : MonoBehaviour
         // In a normal level, advance to the next stage, otherwise reload this stage
         if (levelData.lastLevel)
         {
-            foregroundController.Freeze();
+            //foregroundController.Freeze();
             hudController.ShowWinMessage();
+            gameWon = true;
         }
         else if (!levelData.doNotAdvance)
         {
@@ -156,10 +170,13 @@ public class GameController : MonoBehaviour
     }
     public void LoseLife(string soundTag="")
     {
+        if (gameWon) ResetGame();
+
         lives--;
         hudController.RefreshGameUI();
-        if (lives <= 0)
+        if (lives < 0)
         {
+            
             GameOver();
         }
         else

@@ -23,10 +23,11 @@ public class Paddle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ball" && !foreground.stuckToPaddle)
+        if (collision.gameObject.tag != "ball" || foreground.stuckToPaddle)
         {
-            foreground.game.PlaySound(soundTag);
+            return;
         }
+        foreground.game.PlaySound(soundTag);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

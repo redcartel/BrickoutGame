@@ -52,8 +52,8 @@ MonoBehaviour:
   launchSpeed: 45
   speeds:
   - 60
-  - 75
-  - 90
+  - 80
+  - 100
   mapData:
   - 3,3,3,-,-,-,-
   - 3,-,-,3,-,-,-,-

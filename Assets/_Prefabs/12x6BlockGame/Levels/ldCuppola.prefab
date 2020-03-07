@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3829645660949975215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3829645660949975209}
+  - component: {fileID: 3829645660949975214}
+  m_Layer: 0
+  m_Name: ldCuppola
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3829645660949975209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829645660949975215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3829645660949975214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3829645660949975215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae2ccb52ee1c65c8bc203382a5627c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demo: 0
+  doNotAdvance: 0
+  showStartUI: 0
+  firstLevel: 1
+  lastLevel: 0
+  launchVector: {x: 1, y: 1}
+  launchSpeed: 45
+  speeds:
+  - 60
+  - 80
+  - 100
+  - 120
+  mapData:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - -,-,9,4,4,4,9,-,-
+  - -,-,-,4,4,4,-,-,-
+  - -,-,9,9,9,9,9,-,-
+  - 
+  - 3,3,3,3,3,3,3,3,3
+  - 
+  - 2,2,2,2,2,2,2,2,2
+  - 
+  - 1,1,1,1,1,1,1,1,1
+  - 

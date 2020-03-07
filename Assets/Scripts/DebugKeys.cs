@@ -6,6 +6,8 @@ public class DebugKeys : MonoBehaviour
 {
     // Start is called before the first frame update
     GameController game;
+
+    int clickCount = 0;
     
     void Start()
     {
@@ -27,8 +29,17 @@ public class DebugKeys : MonoBehaviour
                 game.hudController.ShowWinMessage();
             }
             if (Input.GetKeyDown(KeyCode.F9) || Input.GetKeyDown(KeyCode.D)) {
-                Debug.Log("F9");
+                game.WinLevel();
                 //game.hudController.DisableDefaults();
             }
+    }
+
+    public void HandleClick(float eX, float eY) {
+        if (eY > game.expectedHeight - 32 && eY > game.expectedWidth - 32) {
+            clickCount++;
+        }
+        if (clickCount >= 5) {
+            game.WinLevel();
+        }
     }
 }

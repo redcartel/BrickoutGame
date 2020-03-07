@@ -10,7 +10,7 @@ public class Ball : MonoBehaviour
 
     private float maCos;
     private float maSin;
-    private bool waitToChangeBallVelocity = false;
+    //private bool waitToChangeBallVelocity = false;
     //private bool changeBallVelocityNextCycle = false;
     private Vector2 lastVelocity = new Vector3(0f, 0f, 0);
     private float maxSpeed;
@@ -27,8 +27,9 @@ public class Ball : MonoBehaviour
 
     public void SetMinMaxSpeeds(float minSpeed)
     {
-        if (this.minSpeed < minSpeed) this.minSpeed = minSpeed;
-        this.maxSpeed = minSpeed * maxSpeedMultiplier;
+        Ball ball = this;
+        if (ball.minSpeed < minSpeed) ball.minSpeed = minSpeed;
+        if (ball.minSpeed < minSpeed) ball.maxSpeed = minSpeed * ball.maxSpeedMultiplier;
         FixBallVelocity();
     }
 

@@ -365,6 +365,11 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 3784757576527544073}
+    - target: {fileID: 5922667072351217059, guid: f42889ceb54b1770a9f91fd6bc056331,
+        type: 3}
+      propertyPath: speedClass
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7644167901701326133, guid: f42889ceb54b1770a9f91fd6bc056331,
         type: 3}
       propertyPath: m_Name
@@ -375,6 +380,11 @@ PrefabInstance:
       propertyPath: level
       value: 
       objectReference: {fileID: 3784757576527544073}
+    - target: {fileID: 7699775083035758362, guid: f42889ceb54b1770a9f91fd6bc056331,
+        type: 3}
+      propertyPath: points
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8585694465361725145, guid: f42889ceb54b1770a9f91fd6bc056331,
         type: 3}
       propertyPath: level

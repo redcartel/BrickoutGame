@@ -20,6 +20,9 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
+        HideGameOver();
+        HideStartMessage();
+        HideWinMessage();
     }
 
 
@@ -68,15 +71,20 @@ public class HUDController : MonoBehaviour
         gameOverShown = true;
     }
 
+    public void HideGameOver() {SetAlpha(gameOverUI.GetComponent<CanvasGroup>(), 0.0f);}
+
     public void ShowStartMessage()
     {
         SetAlpha(startUI.GetComponent<CanvasGroup>(), 1.0f);
         startShown = true;
     }
+    public void HideStartMessage() {SetAlpha(startUI.GetComponent<CanvasGroup>(), 0.0f);}
 
     public void ShowWinMessage()
     {
-        SetAlpha(winUI.GetComponent<CanvasGroup>(), 1.0f);
         winShown = true;
+        SetAlpha(winUI.GetComponent<CanvasGroup>(), 1.0f);
     }
+    public void HideWinMessage() {SetAlpha(winUI.GetComponent<CanvasGroup>(), 0.0f);}
+
 }
