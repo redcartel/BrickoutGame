@@ -34,7 +34,17 @@ public class ForegroundController : MonoBehaviour
     }
 
     void FixedUpdate() {
+        if (game.demoMode && stuckToPaddle) {
+            float yVec = 1.0f;
+            float xVec = Random.Range(-5f, 5f);
+            LaunchBall(xVec, yVec);
+            ball.FixBallVelocity();
+            return;
+        }
+
         float mouseX = game.mouseX;
+        if (game.demoMode) mouseX = ball.transform.position.x;
+
         float xSpeed = 100f;
 
         if (mouseX < paddle.width / 2) {

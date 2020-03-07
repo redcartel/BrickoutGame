@@ -68,7 +68,7 @@ public class HUDController : MonoBehaviour
         gameOverShown = true;
     }
 
-    public void ShowStartMesage()
+    public void ShowStartMessage()
     {
         SetAlpha(startUI.GetComponent<CanvasGroup>(), 1.0f);
         startShown = true;

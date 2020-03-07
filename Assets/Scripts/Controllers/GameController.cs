@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         }
         if (levelData.showStartUI)
         {
-            hudController.ShowStartMesage();
+            hudController.ShowStartMessage();
         }
     }
 
@@ -117,6 +117,7 @@ public class GameController : MonoBehaviour
 
     public void WinLevel()
     {
+        Debug.Log("WinLevel");
         // In a normal level, advance to the next stage, otherwise reload this stage
         if (levelData.lastLevel)
         {

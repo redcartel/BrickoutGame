@@ -14,6 +14,8 @@ public class LevelController : MonoBehaviour
     [SerializeField] public int elementWidth = 16;
     [SerializeField] public int elementHeight = 8;
 
+    [SerializeField] public GameObject generatedElementsContainer;
+
     public GameController game;
     public int blockCount = 0;
     public bool levelInitialized = false;
@@ -54,6 +56,7 @@ public class LevelController : MonoBehaviour
             game.AddBlock();
         }
         newElement.transform.position = new Vector3(x, y, 0);
+        newElement.transform.parent = generatedElementsContainer.transform;
     }
 
     // Turn a string of comma separated integers into an array of ints.

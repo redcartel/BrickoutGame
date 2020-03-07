@@ -8,6 +8,7 @@ TagManager:
   - canvasContainer
   - defaultDisabled
   - mustDestroy
+  - block
   layers:
   - Default
   - TransparentFX
