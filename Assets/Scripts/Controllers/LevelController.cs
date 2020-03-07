@@ -6,8 +6,11 @@ public class LevelController : MonoBehaviour
 {
     [SerializeField] public GameObject[] elementSources;
     [SerializeField] public int expectedRows = 16;
-    [SerializeField] public int bottomRowY = 216 - 16 * 8;
-    [SerializeField] public int offsetX = 8;
+    [SerializeField] public int stageTop = 224; // TODO: make variable, set in LevelData 
+    [SerializeField] public int brickXOffset = 0;
+    [SerializeField] public int brickYOffset = 0;
+    
+    // [SerializeField] public int offsetX = 8;
     [SerializeField] public int elementWidth = 16;
     [SerializeField] public int elementHeight = 8;
 
@@ -43,9 +46,9 @@ public class LevelController : MonoBehaviour
         if (code < 0) return;
         if (code > elementSources.Length) return;
 
-        int x = offsetX + elementWidth * colIndex;
+        int x = (int)game.borderWidth + (int)elementWidth * (int)colIndex + brickXOffset;
         int rowFromBottom = numRows - rowIndex - 1;
-        int y = bottomRowY + rowFromBottom * elementHeight;
+        int y = stageTop - (rowIndex + 1) * elementHeight + brickYOffset;
         GameObject newElement = Instantiate(elementSources[code]);
         if (newElement.tag == "mustDestroy") {
             game.AddBlock();

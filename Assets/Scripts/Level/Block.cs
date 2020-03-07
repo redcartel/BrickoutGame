@@ -20,6 +20,7 @@ public class Block : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "ball")
+        {
             if (breakable)
             {
                 Debug.Log(level);
@@ -34,5 +35,6 @@ public class Block : MonoBehaviour
             {
                 level.game.PlaySound(soundTag);
             }
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
@@ -90,7 +89,6 @@ public class GameController : MonoBehaviour
 
     public void HandleMouseMove(float eX, float eY)
     {
-        foregroundController.HandleMouseMove(eX, eY);
     }
 
     public void HandleClick(float eX, float eY)
@@ -136,7 +134,6 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(thisSceneIndex);
         }
     }
-
     public void IncreaseScore(int amount)
     {
         score += amount;
@@ -156,7 +153,6 @@ public class GameController : MonoBehaviour
             WinLevel();
         }
     }
-
     public void LoseLife(string soundTag="")
     {
         lives--;
@@ -167,11 +163,12 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            foregroundController.ResetPaddle();
             foregroundController.ResetBall();
+            foregroundController.stuckToPaddle = true;
             PlaySound(loseLifeSoundTag);
         }
     }
-
     public void GameOver()
     {
         Debug.Log("Game Over");
@@ -179,15 +176,12 @@ public class GameController : MonoBehaviour
         foregroundController.Freeze();
         hudController.ShowGameOver();
     }
-
     public void PlaySound(string soundTag)
     {
         soundController.PlaySound(soundTag);
     }
-
     public void SetBallSpeedClass(int speedClass)
     {
-        float newMinBallSpeed = levelData.speeds[speedClass];
-        foregroundController.MinBallSpeed(newMinBallSpeed);
+        foregroundController.ball.SetMinMaxSpeeds(levelData.speeds[speedClass]);
     }
 }

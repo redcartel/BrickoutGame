@@ -10,8 +10,11 @@ public class Paddle : MonoBehaviour
     [SerializeField] public string soundTag = "PADDLEBOUNCE";
     [SerializeField] ForegroundController foreground;
 
+    public Rigidbody2D rigidbody2D;
+
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -23,6 +26,12 @@ public class Paddle : MonoBehaviour
         if (collision.gameObject.tag == "ball" && !foreground.stuckToPaddle)
         {
             foreground.game.PlaySound(soundTag);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "ball" && !foreground.stuckToPaddle) {
         }
     }
 }

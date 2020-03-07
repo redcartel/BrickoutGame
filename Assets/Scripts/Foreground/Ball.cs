@@ -13,57 +13,44 @@ public class Ball : MonoBehaviour
     private bool waitToChangeBallVelocity = false;
     //private bool changeBallVelocityNextCycle = false;
     private Vector2 lastVelocity = new Vector3(0f, 0f, 0);
-
+    private float maxSpeed;
+    private float minSpeed;
+    public float maxSpeedMultiplier = 1.5f;
     void Start()
     {
-       
         rigidBody2D = GetComponent<Rigidbody2D>();
-
-        // the power of 8th grade math & the unit circle cannot be stopped
         maCos = Mathf.Cos(minAngle / 180.0f * Mathf.PI);
         maSin = Mathf.Sin(minAngle / 180.0f * Mathf.PI);
-
+        minSpeed = foreground.game.levelData.launchSpeed;
+        maxSpeed = foreground.game.levelData.launchSpeed * 1.5f;
     }
 
-    // FixedUpdate called once per physics frame;
-    void FixedUpdate()
+    public void SetMinMaxSpeeds(float minSpeed)
     {
-    if (waitToChangeBallVelocity)
-        {
-            waitToChangeBallVelocity = false;
-            /*changeBallVelocityNextCycle = true;*/
-        }
-        // otherwise check if the velocity has changed since last time.
-        else if ((lastVelocity - rigidBody2D.velocity).magnitude > .01f)
-        {
-            FixBallVelocity();
-            lastVelocity = rigidBody2D.velocity;
-        }
-        else
-        {
-            lastVelocity = rigidBody2D.velocity;
-        }
+        if (this.minSpeed < minSpeed) this.minSpeed = minSpeed;
+        this.maxSpeed = minSpeed * maxSpeedMultiplier;
+        FixBallVelocity();
     }
 
     // Don't let the ball travel at too low or too great of a slope.
-    private void FixBallVelocity()
+    public void FixBallVelocity()
     {
         // If the ball is going at too steep or shallow of an angle (minAngle), fix that.
         float speed = rigidBody2D.velocity.magnitude;
-        Vector2 direction = rigidBody2D.velocity.normalized;
+        if (speed > minSpeed) speed = speed - (speed - minSpeed) * 0.9f;
+        if (speed < minSpeed) speed = minSpeed;
+        if (speed > maxSpeed) speed = maxSpeed;
 
-        // some trig
-        if (Mathf.Abs(direction.y) + .01f < maSin)
-        {
-            Debug.Log("Ball Velocity Fixed");
-            direction = new Vector2(Mathf.Sign(direction.x) * maCos, Mathf.Sign(direction.y) * maSin);
-            rigidBody2D.velocity = speed * direction.normalized;
-        }
-        else if (Mathf.Abs(direction.x) +.01f < maSin)
-        {
-            Debug.Log("Ball Velocity Fixed");
-            direction = new Vector2(Mathf.Sign(direction.x) * maSin, Mathf.Sign(direction.y) * maSin);
-            rigidBody2D.velocity = speed * direction.normalized;
-        }
+        Vector3 direction = rigidBody2D.velocity.normalized;
+        float signX = Mathf.Sign(direction.x);
+        float signY = Mathf.Sign(direction.y);
+
+        if (Mathf.Abs(direction.y) + .01f < maSin) direction = new Vector3(signX * maCos, signY * maSin, 0);
+        if (Mathf.Abs(direction.x) + .01f < maSin) direction = new Vector3(signX * maSin, signY * maCos, 0);
+        rigidBody2D.velocity = speed * direction;
+    }
+
+    void OnCollisionExit2D(Collision2D collision) {
+        FixBallVelocity();
     }
 }
