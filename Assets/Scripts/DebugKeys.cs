@@ -26,11 +26,20 @@ public class DebugKeys : MonoBehaviour
                 game.foregroundController.Freeze();
             }
             if (Input.GetKeyDown(KeyCode.F10)) {
-                game.hudController.ShowWinMessage();
+                //game.hudController.ShowWinMessage();
             }
             if (Input.GetKeyDown(KeyCode.F9) || Input.GetKeyDown(KeyCode.D)) {
                 game.WinLevel();
                 //game.hudController.DisableDefaults();
+            }
+            if (Input.GetKeyDown(KeyCode.F1)) {
+                if (game.hudController.IsVisible<DevelopUI>()) {
+                    game.hudController.SetVisible<DevelopUI>(false);
+                }
+                else
+                {
+                    game.hudController.SetVisible<DevelopUI>(true);
+                }
             }
     }
 

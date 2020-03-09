@@ -10,8 +10,6 @@ public class LevelData : MonoBehaviour
     [SerializeField] public bool firstLevel = true;
     [SerializeField] public bool lastLevel = false;
     [SerializeField] public Vector2 launchVector = new Vector2(1f, 1f);
-    [SerializeField] public float launchSpeed = 30f;
-    [SerializeField] public float[] speeds = { 45f, 60f, 80f };
 
     [SerializeField] public string[] mapData;
 

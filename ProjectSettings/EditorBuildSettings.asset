@@ -8,16 +8,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/LevelSequence/Stage0Demo.unity
     guid: 8355fb2fc03f9baf9ba440036408609e
+  - enabled: 0
+    path: Assets/_Scenes/LevelSequence/Stage02.unity
+    guid: c9b0e31682a6ddac0a388fd9f6dcbdc9
+  - enabled: 0
+    path: Assets/_Scenes/LevelSequence/Stage03.unity
+    guid: ddb9f4e117806200c8af0c290d52f6ea
+  - enabled: 1
+    path: Assets/_Scenes/TestLevel.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/_Scenes/TestLevelFast.unity
+    guid: 4e92df6513ac7a04a896e376a63a51a6
   - enabled: 1
     path: Assets/_Scenes/LevelSequence/Stage01.unity
     guid: 23f0c6707d402ea0e94961f5bdbb1336
   - enabled: 1
-    path: Assets/_Scenes/LevelSequence/Stage02.unity
-    guid: c9b0e31682a6ddac0a388fd9f6dcbdc9
-  - enabled: 1
-    path: Assets/_Scenes/LevelSequence/Stage03.unity
-    guid: ddb9f4e117806200c8af0c290d52f6ea
+    path: Assets/_Scenes/LevelSequence/FastStage01.unity
+    guid: bbf53aa128b76c3be856a1e488e5731d
   - enabled: 1
     path: Assets/_Scenes/LevelSequence/Stage04.unity
     guid: 25f6b7c47375ceec38ccbd29a92a9aa9
+  - enabled: 1
+    path: Assets/_Scenes/LevelSequence/ReallyFastStage04.unity
+    guid: 6fc7af9440a05b70f83d009a505124a6
   m_configObjects: {}

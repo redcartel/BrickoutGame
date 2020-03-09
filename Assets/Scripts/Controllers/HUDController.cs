@@ -6,85 +6,60 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
-    [SerializeField] private GameController game;
-
+    [SerializeField] public GameController game;
+    /*
     [SerializeField] private string disabledTag = "defaultDisabled";
     [SerializeField] private GameUI gameUI;
     [SerializeField] private StartUI startUI;
     [SerializeField] private WinUI winUI;
     [SerializeField] private GameOverUI gameOverUI;
-
-    public bool startShown = false;
-    public bool gameOverShown = false;
-    public bool winShown = false;
-
+    [SerializeField] private DevelopUI developUI;
+    */
     void Start()
     {
-        HideGameOver();
-        HideStartMessage();
-        HideWinMessage();
+        SetVisible<GameUI>(true);
+        SetVisible<StartUI>(false);
+        SetVisible<GameOverUI>(false);
+        SetVisible<WinUI>(false);
+        SetVisible<DevelopUI>(false);
+
+        if (game.levelData.showStartUI) SetVisible<StartUI>(true);
     }
 
-
-    public void SetAlpha(CanvasGroup cg, float alpha)
-    {
-        if (!(cg is null)) {
-            cg.alpha = alpha;
-            if (alpha < 0.00001f) {
-                cg.blocksRaycasts = false;
-            }
-            else if (alpha > 0.99999) {
-                cg.blocksRaycasts = true;
-            }
-        }
-        else {
-            Debug.LogWarning(string.Format("Null CanvasGroup for Canvas"));
-        }
+    public void SetVisible<T>(bool visible = true) where T : MonoBehaviour {
+        float alpha = visible ? 1.0f : 0.0f;
+        T canvas = GetComponentInChildren<T>();
+        CanvasGroup cgrp = canvas.GetComponent<CanvasGroup>();
+        cgrp.alpha = alpha;
+        cgrp.blocksRaycasts = visible;
     }
 
-    public void RefreshGameUI()
-    {
-        gameUI.SetScore(game.score);
-        gameUI.SetLives(game.lives);
-        gameUI.SetLevel(game.level);
+    public bool IsVisible<T>() where T : MonoBehaviour {
+        CanvasGroup cgrp = GetComponentInChildren<T>().GetComponent<CanvasGroup>();
+        return (cgrp.alpha > .0001);
     }
 
     public void HandleClick(float eX, float eY)
     {
-        if (startShown)
+        Debug.Log("HUD click");
+        if (IsVisible<StartUI>())
         {
+            Debug.Log("Start click");
             game.StartGame();
         }
-        else if (gameOverShown)
+        else if (IsVisible<GameOverUI>())
         {
             game.ResetGame();
         }
-        else if (winShown)
+        else if (IsVisible<WinUI>())
         {
             game.ResetGame();
         }
     }
 
-    public void ShowGameOver()
-    {
-        SetAlpha(gameOverUI.GetComponent<CanvasGroup>(), 1.0f);
-        gameOverShown = true;
+    /*
+    void HandleDevUIClick(float eX, float eY) {
+
     }
-
-    public void HideGameOver() {SetAlpha(gameOverUI.GetComponent<CanvasGroup>(), 0.0f);}
-
-    public void ShowStartMessage()
-    {
-        SetAlpha(startUI.GetComponent<CanvasGroup>(), 1.0f);
-        startShown = true;
-    }
-    public void HideStartMessage() {SetAlpha(startUI.GetComponent<CanvasGroup>(), 0.0f);}
-
-    public void ShowWinMessage()
-    {
-        winShown = true;
-        SetAlpha(winUI.GetComponent<CanvasGroup>(), 1.0f);
-    }
-    public void HideWinMessage() {SetAlpha(winUI.GetComponent<CanvasGroup>(), 0.0f);}
-
+    */
 }

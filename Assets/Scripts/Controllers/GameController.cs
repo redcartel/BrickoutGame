@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour
 {
     private Global global;
 
+    [SerializeField] public LevelData levelData;
     [SerializeField] public float expectedHeight = 256f;
     [SerializeField] public float expectedWidth = 144f;
     [SerializeField] public float borderWidth = 0f;
@@ -35,7 +36,6 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public bool demoMode = false;
 
-    [SerializeField] public LevelData levelData;
     [SerializeField] public HUDController hudController;
     [SerializeField] public LevelController levelController;
     [SerializeField] public SoundController soundController;
@@ -69,7 +69,6 @@ public class GameController : MonoBehaviour
         global = FindObjectOfType<Global>();
         // hudController.DisableDefaults();
         levelController.PopulateLevel(levelData);
-        hudController.RefreshGameUI();
 
         if (levelData.firstLevel)
         {
@@ -82,7 +81,7 @@ public class GameController : MonoBehaviour
         }
         if (levelData.showStartUI)
         {
-            hudController.ShowStartMessage();
+            hudController.SetVisible<StartUI>(true);
         }
     }
 
@@ -103,7 +102,7 @@ public class GameController : MonoBehaviour
 
     public void HandleClick(float eX, float eY)
     {
-        foregroundController.HandleClick(eX, eY, levelData.launchVector, levelData.launchSpeed);
+        foregroundController.HandleClick(eX, eY);
         hudController.HandleClick(eX, eY);
         if (!(debugKeys is null)) {
             debugKeys.HandleClick(eX, eY);
@@ -135,7 +134,7 @@ public class GameController : MonoBehaviour
         if (levelData.lastLevel)
         {
             //foregroundController.Freeze();
-            hudController.ShowWinMessage();
+            hudController.SetVisible<WinUI>(true);
             gameWon = true;
         }
         else if (!levelData.doNotAdvance)
@@ -152,7 +151,6 @@ public class GameController : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
-        hudController.RefreshGameUI();
     }
 
     public void AddBlock()
@@ -173,7 +171,6 @@ public class GameController : MonoBehaviour
         if (gameWon) ResetGame();
 
         lives--;
-        hudController.RefreshGameUI();
         if (lives < 0)
         {
             
@@ -192,14 +189,10 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over");
         PlaySound(gameOverSoundTag);
         foregroundController.Freeze();
-        hudController.ShowGameOver();
+        hudController.SetVisible<GameOverUI>(true);
     }
     public void PlaySound(string soundTag)
     {
         soundController.PlaySound(soundTag);
-    }
-    public void SetBallSpeedClass(int speedClass)
-    {
-        foregroundController.ball.SetMinMaxSpeeds(levelData.speeds[speedClass]);
     }
 }

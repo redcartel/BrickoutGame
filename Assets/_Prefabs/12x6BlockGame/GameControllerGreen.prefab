@@ -29,6 +29,27 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2019133310917530983, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 188ecf67538ddd667b7b340c3df88427,
+        type: 3}
+    - target: {fileID: 2019133310917530983, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019133310917530983, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019133310917530983, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2544531454413961419, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Sprite
@@ -145,6 +166,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 11e8c59ee8e658c919e78014ac570b3f,
         type: 3}
+    - target: {fileID: 6761926847627117413, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6761926848025016745, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Sprite
@@ -192,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 8524207066365246221, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Name
-      value: GameController
+      value: GameControllerGreen
       objectReference: {fileID: 0}
     - target: {fileID: 8675678594697570520, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}

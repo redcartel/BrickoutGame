@@ -7,10 +7,17 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] HUDController hudController;
     [SerializeField] Text scoreOutput;
     [SerializeField] Text livesOutput;
     [SerializeField] Text levelOutput;
-    public void SetScore(int value) { scoreOutput.text = value.ToString("D6"); }
-    public void SetLives(int value) { livesOutput.text = value.ToString("D2"); }
-    public void SetLevel(int value) { levelOutput.text = value.ToString("D2"); }
+
+    void FixedUpdate() {
+        int score = hudController.game.score;
+        int lives = hudController.game.lives;
+        int level = hudController.game.level;
+        scoreOutput.text = score.ToString("D6");
+        livesOutput.text = lives.ToString("D2");
+        levelOutput.text = level.ToString("D2");
+    }
 }

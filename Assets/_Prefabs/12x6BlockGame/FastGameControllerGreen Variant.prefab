@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4692961204784139791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 202433965215863366, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 648741615351119216, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811551548290091088, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248047842030129066, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248047842457718856, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: launchSpeed
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248047842917758414, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8862745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.70980394
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.70980394
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794715996015124743, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Name
+      value: FastGameControllerGreen Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7689888021825474002, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088751275011023718, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 46481f9317c8dd287bb60556a03979d8, type: 3}

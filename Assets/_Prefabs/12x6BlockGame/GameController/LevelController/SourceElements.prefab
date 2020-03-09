@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 25
-  speedClass: 2
+  bounceSpeed: 120
   breakable: 1
   soundTag: BRICKBREAK3
   width: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 200
-  speedClass: 3
+  bounceSpeed: 175
   breakable: 0
   soundTag: BRICKBREAK5
   width: 0
@@ -301,8 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 10
-  speedClass: 0
+  points: 5
+  bounceSpeed: 80
   breakable: 1
   soundTag: BRICKBREAK0
   width: 0
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 10
-  speedClass: 0
+  bounceSpeed: 50
   breakable: 0
   soundTag: HARDBOUNCE
   width: 0
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 15
-  speedClass: 1
+  bounceSpeed: 100
   breakable: 1
   soundTag: BRICKBREAK1
   width: 0
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 50
-  speedClass: 3
+  bounceSpeed: 160
   breakable: 1
   soundTag: BRICKBREAK4
   width: 0
@@ -881,8 +881,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0981e3f8ae41d9bd9aa9d1dfcc812872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 75
-  speedClass: 4
+  points: 100
+  bounceSpeed: 225
   breakable: 1
   soundTag: BRICKBREAK5
   width: 0

@@ -46,15 +46,17 @@ MonoBehaviour:
   demo: 1
   doNotAdvance: 1
   showStartUI: 1
-  firstLevel: 1
+  firstLevel: 0
   lastLevel: 0
   launchVector: {x: 1, y: 1}
-  launchSpeed: 45
-  speeds:
-  - 60
-  - 80
-  - 100
   mapData:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 4,4,4,4,5,4,4,4,4
+  - 
   - 3,3,3,-,-,-,-
   - 3,-,-,3,-,-,-,-
   - 3,-,-,3,-,-,1,-
@@ -64,6 +66,5 @@ MonoBehaviour:
   - 3,3,3,-,1,-,-,-,1
   - -,-,-,-,1,-,-,-,1
   - -,-,-,-,1,-,-,-,1
-  - '-'
-  - 2,2,2,2,2,2,2,2,2
-  - 2,2,2,2,2,2,2,2,2
+  - 
+  - 3,3,3,3,3,3,3,3,3

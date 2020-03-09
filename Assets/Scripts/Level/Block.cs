@@ -5,7 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] int points = 10;
-    [SerializeField] int speedClass = 0;
+    [SerializeField] float bounceSpeed = 50f;
     [SerializeField] bool breakable = false;
     [SerializeField] public string soundTag = "HARDBOUNCE";
     [SerializeField] public float width;
@@ -19,21 +19,14 @@ public class Block : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "ball")
-        {
-            if (breakable)
-            {
-                Debug.Log(level);
-                Debug.Log(level.game);
+        Ball ball;
+        if (ball = collision.gameObject.GetComponent<Ball>()) {
+            ball.SetMinMaxSpeeds(bounceSpeed);
+            ball.enforceMinMaxSpeed();
+            if (breakable) {
                 level.game.IncreaseScore(points);
                 level.game.RemoveBlock();
                 Destroy(gameObject);
-                level.game.SetBallSpeedClass(speedClass);
-            }
-
-            if (!(soundTag is null) && soundTag.Length > 0)
-            {
-                level.game.PlaySound(soundTag);
             }
         }
     }
