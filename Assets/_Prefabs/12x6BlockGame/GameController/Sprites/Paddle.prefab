@@ -46,10 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca140a2afb98c80dacb506931d9dc47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 40
-  dimensions: {x: 40, y: 8}
-  soundTag: PADDLEBOUNCE
   foreground: {fileID: 0}
+  width: 40
+  leftPaddleBound: 0
+  rightPaddleBound: 0
+  soundTag: PADDLEBOUNCE
+  regularSpeed: 450
+  fastSpeed: 600
+  rigidBody2D: {fileID: 223048860680052287}
 --- !u!212 &3184334954322175480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,7 +93,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0176777b4830652a9c390ba1fd370f0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bca74cf81d2c0f7f5af7e49b52cf0ea0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.972549}
   m_FlipX: 0
   m_FlipY: 0

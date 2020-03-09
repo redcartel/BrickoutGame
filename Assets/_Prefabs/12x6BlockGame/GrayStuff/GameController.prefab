@@ -327,21 +327,6 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 5493686627393207685, guid: 92bf5f06174a2e705aeaa09bc3d4d45c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493686627393207685, guid: 92bf5f06174a2e705aeaa09bc3d4d45c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5493686627393207685, guid: 92bf5f06174a2e705aeaa09bc3d4d45c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5742142916377314317, guid: 92bf5f06174a2e705aeaa09bc3d4d45c,
         type: 3}
       propertyPath: m_Color.r
@@ -522,10 +507,30 @@ PrefabInstance:
       propertyPath: points
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 600245423740794832, guid: 6be75de96db0d9e7da2e599319340eb0,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 600245423829388724, guid: 6be75de96db0d9e7da2e599319340eb0,
+        type: 3}
+      propertyPath: points
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 600245423829388724, guid: 6be75de96db0d9e7da2e599319340eb0,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 1128423577246644266, guid: 6be75de96db0d9e7da2e599319340eb0,
         type: 3}
       propertyPath: m_Name
       value: LevelController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1560808485044611644, guid: 6be75de96db0d9e7da2e599319340eb0,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 1679516871533143832, guid: 6be75de96db0d9e7da2e599319340eb0,
         type: 3}
@@ -612,6 +617,11 @@ PrefabInstance:
       propertyPath: elementSources.Array.data[7]
       value: 
       objectReference: {fileID: 9110262982397767490}
+    - target: {fileID: 7432962486251330332, guid: 6be75de96db0d9e7da2e599319340eb0,
+        type: 3}
+      propertyPath: bounceSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 193778529569143253, guid: 6be75de96db0d9e7da2e599319340eb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6be75de96db0d9e7da2e599319340eb0, type: 3}

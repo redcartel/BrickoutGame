@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8caa421ed8da480c1a7c8f99ea04e00b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   ball: {fileID: 3659172250923783337}
   paddle: {fileID: 3659172250965202561}
-  game: {fileID: 0}
+  launchSpeed: 75
   frozen: 0
   savedBallVelocity: {x: 0, y: 0, z: 0}
   stuckToPaddle: 1
-  maxPaddleSpeed: 100
+  paddleSpeed: 450
 --- !u!1001 &3890065461246540113
 PrefabInstance:
   m_ObjectHideFlags: 0

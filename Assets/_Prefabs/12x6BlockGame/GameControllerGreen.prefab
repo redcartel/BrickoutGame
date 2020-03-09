@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2538725194394583981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834117584612550272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d5b3e21cb4d0e0991479f81a823a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4820429667622869514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12,12 +24,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 09dce56a0c579c7db8b80bd1c8d5cb01,
-        type: 3}
-    - target: {fileID: 450526079416299870, guid: 99b0172523a71018aaa101c3ba9f9de8,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fe96e96dafa6110699cd113e8b029821,
         type: 3}
     - target: {fileID: 1621298424085149878, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
@@ -50,12 +56,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2544531454413961419, guid: 99b0172523a71018aaa101c3ba9f9de8,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ba1419ef9e1b7d944b4bf2b4ef6814b3,
-        type: 3}
     - target: {fileID: 3481386670256033859, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Size.x
@@ -66,12 +66,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 3481386670256033859, guid: 99b0172523a71018aaa101c3ba9f9de8,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ccc35f48274b468078071eb134cdf58d,
-        type: 3}
     - target: {fileID: 5242315174615476317, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Sprite
@@ -143,11 +137,6 @@ PrefabInstance:
       propertyPath: levelData
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6761926846592872388, guid: 99b0172523a71018aaa101c3ba9f9de8,
-        type: 3}
-      propertyPath: points
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 6761926846634381738, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Sprite
@@ -159,12 +148,6 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a0db933833c2129dd8046fc3f5a4b12e,
-        type: 3}
-    - target: {fileID: 6761926847344170401, guid: 99b0172523a71018aaa101c3ba9f9de8,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 11e8c59ee8e658c919e78014ac570b3f,
         type: 3}
     - target: {fileID: 6761926847627117413, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
@@ -209,6 +192,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TopRight
       objectReference: {fileID: 0}
+    - target: {fileID: 6823187326035817016, guid: 99b0172523a71018aaa101c3ba9f9de8,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8128087314158268140, guid: 99b0172523a71018aaa101c3ba9f9de8,
         type: 3}
       propertyPath: m_Sprite
@@ -237,6 +225,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99b0172523a71018aaa101c3ba9f9de8, type: 3}
+--- !u!1 &834117584612550272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5293694080886684810, guid: 99b0172523a71018aaa101c3ba9f9de8,
+    type: 3}
+  m_PrefabInstance: {fileID: 4820429667622869514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &2248047843409989437 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6761926848262919479, guid: 99b0172523a71018aaa101c3ba9f9de8,

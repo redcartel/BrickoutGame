@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bacb973eb37f3a6c0a4c48bf69676b15, type: 3}
---- !u!1001 &1029879192
+--- !u!1001 &1150137673
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -256,12 +256,7 @@ PrefabInstance:
         type: 3}
       propertyPath: levelData
       value: 
-      objectReference: {fileID: 481726304555273142}
-    - target: {fileID: 1811551548290091088, guid: 46481f9317c8dd287bb60556a03979d8,
-        type: 3}
-      propertyPath: waitToChangeBallVelocity
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1977759371}
     - target: {fileID: 3794715996015124743, guid: 46481f9317c8dd287bb60556a03979d8,
         type: 3}
       propertyPath: m_Name
@@ -269,19 +264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46481f9317c8dd287bb60556a03979d8, type: 3}
---- !u!114 &481726304555273142 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3829645660949975214, guid: 137ad6c592ae0807a816b70332a4fd37,
-    type: 3}
-  m_PrefabInstance: {fileID: 3714007297982241560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ae2ccb52ee1c65c8bc203382a5627c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &3714007297982241560
+--- !u!1001 &1977759370
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -343,25 +326,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3829645660949975214, guid: 137ad6c592ae0807a816b70332a4fd37,
-        type: 3}
-      propertyPath: mapData.Array.data[6]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829645660949975214, guid: 137ad6c592ae0807a816b70332a4fd37,
-        type: 3}
-      propertyPath: mapData.Array.data[4]
-      value: -,-,-,4,4,4,-,-,-
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829645660949975214, guid: 137ad6c592ae0807a816b70332a4fd37,
-        type: 3}
-      propertyPath: mapData.Array.data[3]
-      value: -,-,9,-,-,-,9,-,-]'?>'/
-      objectReference: {fileID: 0}
     - target: {fileID: 3829645660949975215, guid: 137ad6c592ae0807a816b70332a4fd37,
         type: 3}
       propertyPath: m_Name
-      value: ldCuppola
+      value: ldCuppola (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 137ad6c592ae0807a816b70332a4fd37, type: 3}
+--- !u!114 &1977759371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3829645660949975214, guid: 137ad6c592ae0807a816b70332a4fd37,
+    type: 3}
+  m_PrefabInstance: {fileID: 1977759370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3ae2ccb52ee1c65c8bc203382a5627c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

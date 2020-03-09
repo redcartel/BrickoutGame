@@ -188,10 +188,60 @@ PrefabInstance:
       propertyPath: levelData
       value: 
       objectReference: {fileID: 8630591138586072763}
+    - target: {fileID: 1811551550144790223, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Density
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089728930695155489, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089728930695155489, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 231.1875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538725194394583981, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.5868396
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730272607373075577, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.72307944
+      objectReference: {fileID: 0}
+    - target: {fileID: 3526393361912320266, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3794715996015124743, guid: 46481f9317c8dd287bb60556a03979d8,
         type: 3}
       propertyPath: m_Name
       value: GameControllerGreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957337438365536669, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957337438365536669, guid: 46481f9317c8dd287bb60556a03979d8,
+        type: 3}
+      propertyPath: m_Mass
+      value: 30.190704
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46481f9317c8dd287bb60556a03979d8, type: 3}
@@ -271,16 +321,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3472854513676698050, guid: e791c50eb11159e599d8af76fd2986b0,
-        type: 3}
-      propertyPath: firstLevel
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472854513676698050, guid: e791c50eb11159e599d8af76fd2986b0,
-        type: 3}
-      propertyPath: lastLevel
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3472854513676698050, guid: e791c50eb11159e599d8af76fd2986b0,
         type: 3}
       propertyPath: launchSpeed

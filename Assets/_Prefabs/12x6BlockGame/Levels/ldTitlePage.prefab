@@ -46,7 +46,7 @@ MonoBehaviour:
   demo: 1
   doNotAdvance: 1
   showStartUI: 1
-  firstLevel: 0
+  firstLevel: 1
   lastLevel: 0
   launchVector: {x: 1, y: 1}
   mapData:

@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     [SerializeField] public string gameStartSoundTag = "START";
     [SerializeField] public string gameWonSoundTag = "";
 
+    private int extra_lives = 0;
+
 
     [SerializeField] public int blockCount = 0; // serialized for debugging, don't change
 
@@ -151,6 +153,11 @@ public class GameController : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
+        if (score >= extra_lives * 1000 + 1000) {
+            extra_lives++;
+            global.lives++;
+            PlaySound("START");
+        }
     }
 
     public void AddBlock()
