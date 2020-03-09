@@ -43,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BGSprites
+    uniqueID: 3994043787
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

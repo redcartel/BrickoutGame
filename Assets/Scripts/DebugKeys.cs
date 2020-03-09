@@ -7,11 +7,16 @@ public class DebugKeys : MonoBehaviour
     // Start is called before the first frame update
     GameController game;
 
+    Global global;
+
     int clickCount = 0;
+
+    int sequencePosition = 0;
     
     void Start()
     {
         game = GetComponentInParent<GameController>();
+        global = FindObjectOfType<Global>();
     }
 
     // Update is called once per frame
@@ -41,6 +46,47 @@ public class DebugKeys : MonoBehaviour
                     game.hudController.SetVisible<DevelopUI>(true);
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                advanceCode("U");
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow)) {
+                advanceCode("D");
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+                advanceCode("L");
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightArrow)) {
+                advanceCode("R");
+            }
+
+            if (Input.GetKeyDown(KeyCode.B)) {
+                advanceCode("B");
+            }
+
+            if (Input.GetKeyDown(KeyCode.A)) {
+                advanceCode("A");
+            }
+    }
+
+    void advanceCode(string symbol) {
+        char symb = symbol[0];
+        const string code = "UUDDLRLRBA";
+        if (symb == code[sequencePosition]) {
+            sequencePosition++;
+            Debug.Log(sequencePosition);
+            if (sequencePosition == code.Length) {
+                global.lives = 99;
+                sequencePosition = 0;
+            }
+        }
+        else {
+            if (symb == "U"[0]) sequencePosition = 1;
+            else sequencePosition = 0;
+        }
     }
 
     public void HandleClick(float eX, float eY) {
