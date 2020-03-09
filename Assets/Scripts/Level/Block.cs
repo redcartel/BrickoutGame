@@ -29,5 +29,6 @@ public class Block : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        level.game.PlaySound(soundTag);
     }
 }
